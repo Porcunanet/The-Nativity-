@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Nativity</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header with background image */
+    header {
+      position: relative;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    header img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    header h1,
+    header span {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header span {
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #8b4513;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 15px 0;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0;
+    }
+
+    .nav-links a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #6b3410;
+    }
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    main > p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      color: #8b4513;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #daa520;
+      padding-bottom: 10px;
+    }
+
+    section p {
+      margin-bottom: 20px;
+      text-align: justify;
+      font-size: 1.05rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #8b4513;
+      color: white;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    footer a:hover {
+      background-color: white;
+      color: #8b4513;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      header {
+        height: 300px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header span {
+        font-size: 1.2rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #8b4513;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      .nav-links.active {
+        max-height: 500px;
+      }
+
+      .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #6b3410;
+      }
+
+      .nav-links a {
+        padding: 15px 20px;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      main > p,
+      section p {
+        font-size: 1rem;
+      }
+
+      . {
+        margin:0 auto;
+        width:100%;
+        display:none;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://storage.needpix.com/rsynced_images/nativity-scene-2069653_1280.jpg" alt="Nativity Scene Background"/>
+    <h1>The Nativity</h1>
+    <span>God Becomes Human to Show us the Way</span>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#divine-love">Divine Love</a></li>
+        <li><a href="#wonder">A Sense of Wonder</a></li>
+        <li><a href="#open-heart">An Open Heart</a></li>
+        <li><a href="#centering">Centering on Christ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <p>The simplicity of the story of Christ's birth reveals the depth of God's love and the mystery of His actions in our life. As we celebrate Christmas anew this year, once again Mary and Joseph, the shepherds and wise men, the angels and animals direct our attention to the Lord Jesus. He who is truly the "way, the truth and the life" (John 14:1) who reveals himself in the humble circumstances of a cave in Bethlehem. All of time is centered upon His coming. All of creation surrounds Him who fashioned the creation!</p>
+
+    <section id="divine-love">
+      <img src="https://th.bing.com/th/id/OIP.imLNdkNX0EE66A-9E2_kmAHaHa?w=186&h=186&c=7&r=0&o=7&pid=1.7&rm=3" alt="Divine Love Jesus Christ our Sweetest Lord" class="section-image" />
+      <h2>The Expression of Divine Love</h2>
+      <p>The story of the birth of Christ is a vivid reminder of the depth of God's love for us. He loves us so much that He has entered into life in this world in the person of Christ. The infinite God mysteriously accepted the limitations of our humanity. It was not enough for God to act through signs and wonders of the physical world. It was not enough for God to guide us through the prophets and teachers of old. No, this was not enough for our God. To express His boundless love for us, the Loving God appeared among us in the person of Christ Our Lord. By fully identifying himself with us, Christ has come to teach us, to heal us and to lead us back to the Father. He has come to remind us that we are the Father's precious daughters and sons. As St. John the Evangelist says: "God so loved the world that He sent His Only begotten Son so that all who believe in Him will not be lost but will have eternal life" (John 3:16).</p>
+      <p>Many years before the Beatitudes were taught and many years before His glorious Resurrection, Christ revealed God's love for us through the simple events of His birth. The Lord of Glory demonstrated His love for us simple by entering into our life and by sharing in all that is truly human. St. Basil the great reminds us of this, saying: "Every act and every word of our Savior is a guide for holiness and virtue. For this reason He became human, so that in images He may depict both holiness and virtue for us...For this reason He bears a body so that we may imitate his life" (Ascetical Principles, 1)</p>
+      <p>Through His birth in Bethlehem, Our Lord reveals to us the breadth and depth of God's love for us. Whether we see Him as the child in Bethlehem, the teacher in Galilee, or the Risen Lord in Jerusalem; Christ is truly the greatest gift of the Father "for us and for our salvation."</p>
+    </section>
+
+    <section id="wonder">
+      <h2>A Sense of Wonder</h2>
+      <p>The story of Christ's birth speaks to us about the mysterious ways of God. The Triune God acts in a way that we do not always expect! His ways are truly wonder-filled. For centuries, the Ancient Israelites had expected the Messiah. The prophets, especially Isaiah and Jeremiah, called the people to readiness and openness to God's actions. Their message provided the people with indications about the coming Messiah.</p>
+      <p>Yet, when "the fullness of time had come" (Gal.4:4), the Messiah did not arrive as a conquering hero in a golden chariot with pomp and splendor. He was not robed in expensive clothing. He did not appear in the capital city. Throngs of adoring followers did not accompany him.</p>
+      <p>When the Messiah finally arrived, He came first as a baby. He was born to a young girl who was not formally married. The event occurred in the simple village of Bethlehem. He was sheltered in a place reserved for animals because the inn was full. There, in such simple circumstances "the Word became flesh and dwelt among us, full of grace and truth..." (John 1:14). This is the mysterious way of God!</p>
+      <p>Through the Christmas story, Our Lord reveals that God acts in ways that we do not always expect. We cannot shape the mighty acts of God to our limited understanding. The Triune God is greater than our limited perceptions of Him. He acts in mysterious and wondrous ways to draw us to Him and to one another in love.</p>
+    </section>
+
+    <section id="open-heart">
+      <h2>An Open Heart</h2>
+      <p>The persons who are involved in the story of Christ's birth were all quite different. Mary and Joseph were humble travelers seeking a place of shelter. The Shepherds were simple men of the land tending their flocks. The wise men were wealthy and aristocratic foreigners wandering in a strange land.</p>
+      <p>Yet, each of them shared a common characteristic. They opened their hearts to the actions of the Lord who mysteriously led them to the village of Bethlehem. Each of them permitted God to act in their lives.</p>
+      <p>Mary & Joseph were willing to change their whole life to nurture and protect the child and our Lord Jesus. The shepherds were willing to hear the words of the angels. The wise men were willing to follow the star. We remember them to this day because they opened their hearts and trusted the Lord.</p>
+      <p>Through his birth in Bethlehem, Jesus reveals that we too must open our hearts to His presence and actions. God wants us to share in his work of reconciliation. Like the participants in the first Christmas, we too are called to be persons whose hearts are open to the divine presence and actions.</p>
+    </section>
+
+    <section id="centering">
+      <h2>Centering the Season on Christ</h2>
+      <p>The story of the birth of Christ and its true significance is often clouded by the commercialism of the season. There is a very frenzied pace to these days which can so easily depersonalize us and dampen the true joy of the season. The stores tempt us for weeks on end to buy this thing or that thing. Some of us prefer to speak of the "holiday season" rather than of Christmas. Many schools have forbidden the remembrance of Christ's birth in the classroom. Yes, throughout our society, many fail to remember that the coming of Christ is truly at the heart of the Christmas celebrations.</p>
+      <p>What can we do? Let us remember that the season celebrates the love of God revealed in the coming of Christ. For those with faith, the colored lights, the green trees, the wreaths and the flowers are the symbols of the joy of Christmas. Let us celebrate the joy of Christ's coming!</p> 
+      <p>Let us share the love of God with others. Christ has come to bear witness to the Father's love for us. We too can share this love with others, especially with the poor and less fortunate among us. We can be sensitive to those who cannot easily celebrate because of a loss in their lives. Let us be the ambassadors of God who share His care and philanthropy.</p>
+      <p>Let us seek the Lord with an open heart as the shepherds and wise men did. This means that we find opportunities for prayer and meditation, for reading the Scriptures related to Christ's coming. This means that we can make Christmas a special day by participating in the Divine Liturgy and by receiving Holy Communion with reverence for God, with faith and with love.</p>
+      <p>To Christ Our Lord be glory, now and forever and unto the ages of ages. Amen.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://holy-trinity.org/" target="_blank">Visit Holy Trinity</a>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
